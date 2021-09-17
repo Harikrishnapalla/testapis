@@ -30,24 +30,9 @@
                 console.log(typeof(data));  
                 datas = data['body']
                 console.log("aaaaaaaaaaaaaaa", datas)
-
-                name = "test0"
-                email = "emails"
-
-
                 var markup = "<tr><td>"+datas.country_name+"</td><td>"+datas.population+"</td><td>" + datas.ranking + "</td><td>" + datas.world_share + "</td></tr>";
                 $("#productTable tbody").append(markup);
-
-            //     $("#productTable tbody").append("<tr>" +
-            // "<td>1</td>" +
-            // "<td>2</td>" +
-            // "<td>3</td>" + 
-            // "<td>344</td>" +
-            // "</tr>");
                 console.log("test")
-
-
-
             },  
             error: function(xhr, textStatus, errorThrown) {  
                 console.log('Error in Database');  
