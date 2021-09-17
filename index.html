@@ -2,8 +2,56 @@
 <html>
 <head>
 	<title></title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
 <h1>hello world</h1>
+<table id="productTable" border="1px solide red" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>country_name</th>
+                        <th>population</th>
+                        <th>ranking</th>
+                        <th>world_share</th>
+                    </tr>
+                    <tbody>
+                    </tbody>
+                </thead>
+            </table>
 </body>
 </html>
+<script>  
+    $(document).ready(function() {  
+        $.ajax({  
+            url: 'http://18.234.164.137:8000/data/',  
+            type: 'GET',  
+            dataType: 'json',  
+            success: function(data, textStatus, xhr) {  
+                console.log(typeof(data));  
+                datas = data['body']
+                console.log("aaaaaaaaaaaaaaa", datas)
+
+                name = "test0"
+                email = "emails"
+
+
+                var markup = "<tr><td>"+datas.country_name+"</td><td>"+datas.population+"</td><td>" + datas.ranking + "</td><td>" + datas.world_share + "</td></tr>";
+                $("#productTable tbody").append(markup);
+
+            //     $("#productTable tbody").append("<tr>" +
+            // "<td>1</td>" +
+            // "<td>2</td>" +
+            // "<td>3</td>" + 
+            // "<td>344</td>" +
+            // "</tr>");
+                console.log("test")
+
+
+
+            },  
+            error: function(xhr, textStatus, errorThrown) {  
+                console.log('Error in Database');  
+            }  
+        });  
+    });  
+</script>  
